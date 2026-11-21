@@ -13,6 +13,7 @@ Tested Systems:
 * Manjaro Linux 20.2.1 with `systemd-boot` and `mkinitcpio`.
 * Artix Linux OpenRC (Linux 5.17.4-artix1-1) with `grub` and `mkinitcpio`.
 * Arch Linux (Linux 5.17.4.arch1-1) with `grub` and `mkinitcpio`.
+* Artix Linux Dinit (Linux 7.2.15.artix1-1) with uki (no bootloader) and `mkinitcpio`.
 
 # Installing
 
