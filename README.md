@@ -61,4 +61,6 @@ Usually unlocking fails only when any of the TPM registers were updated as part 
 
 # Credits
 
-Forked from [arch-clevis](https://gitlab.com/cosandr/arch-clevis) by [Andrei Costescu](https://gitlab.com/cosandr). I just simplified, fixed some bugs & added a clear readme, and @SimPilotAdamT just adapted it so this can be used in the AUR for easier install and uninstall.
+Originally forked from [arch-clevis](https://gitlab.com/cosandr/arch-clevis) by [Andrei Costescu](https://gitlab.com/cosandr). I just simplified, fixed some bugs & added a clear readme, and @SimPilotAdamT just adapted it so this can be used in the AUR for easier install and uninstall.
+
+Further forked from [arch-mkinitcpio-clevis-hook](https://github.com/kishorviswanathan/arch-mkinitcpio-clevis-hook) by [Andrei Costescu](https://gitlab.com/cosandr) to implement missing binaries from the `initramfs` (debuged with chatGPT, the fix was done by hand and suggested by it).
