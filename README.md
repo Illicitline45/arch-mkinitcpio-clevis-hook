@@ -16,51 +16,32 @@ Tested Systems:
 
 # Installing
 
-## AUR Method
-
-1. Install the `mkinitcpio-clevis-hook` package from the AUR (this installs all dependencies, as well as the hook).
-2. Add `clevis` binding to your LUKS device.
-    ```sh
-    sudo clevis luks bind -d <device> tpm2 '{"pcr_ids":"0,1,2,3,4,5,6,7"}'
-    ```
-3. Enable the `clevis` hook.
-    ```sh
-    sudo vim /etc/mkinitcpio.conf
-    # Edit the hooks and add clevis before the 'encrypt' hook. Eg:
-    # HOOKS=(.. clevis encrypt ..)
-    ```
-
-    Note: If you are using `plymouth`, replace the `plymouth-encrypt` hook with `encrypt`. `plymouth-encrypt` is reported to be buggy when the device is already unlocked. [More info.](https://github.com/kishorv06/arch-mkinitcpio-clevis-hook/issues/1)
-4. Generate `initramfs` image.
-    ```sh
-    sudo mkinitcpio -P
-    ```
-5. Reboot.
-
 ## Manual Method
+1. `git clone` this repo
 
-1. Install the following packages.
-    ```sh
-    sudo pacman --needed -S clevis tpm2-tools luksmeta libpwquality
-    ```
-2. Add `clevis` binding to your LUKS device.
+2. `cd arch-mkinitcpio-clevis-hook/`
+
+3.  `makepkg -si`
+
+4. Add `clevis` binding to your LUKS device.
     ```sh
     sudo clevis luks bind -d <device> tpm2 '{"pcr_ids":"0,1,2,3,4,5,6,7"}'
     ```
-3. Install the `clevis` hook.
-    ```sh
-    sudo ./install.sh
+
+5. Add the clevis hook to the mkinitcpio
+    ```
     sudo vim /etc/mkinitcpio.conf
     # Edit the hooks and add clevis before the 'encrypt' hook. Eg:
     # HOOKS=(.. clevis encrypt ..)
     ```
 
     Note: If you are using `plymouth`, replace the `plymouth-encrypt` hook with `encrypt`. `plymouth-encrypt` is reported to be buggy when the device is already unlocked. [More info.](https://github.com/kishorv06/arch-mkinitcpio-clevis-hook/issues/1)
-4. Generate `initramfs` image.
+7. Generate `initramfs` image.
     ```sh
     sudo mkinitcpio -P
     ```
-5. Reboot.
+    
+8. Reboot.
 
 # Updating
 
